@@ -1,0 +1,44 @@
+<% layout('/layouts/boilerplate') %> 
+<div class="row">
+    <h1 class="text-center">New Campground</h1>
+    <div class="col-6 offset-3">
+        <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label" for="title">title</label>
+                <input class="form-control" type="text" id="title" name="campground[title]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="location">location</label>
+                <input class="form-control" type="text" id="location" name="campground[location]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+            <input type="file" name="image" id="" multiple>
+            <div class="mb-3">
+                <label for="price" class="form-label">Campground Price</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">$</span>
+                    <input id="price" type="text" class="form-control" name="campground[price]" placeholder="0.00" aria-label="price" aria-describedby="price-label" required>
+                </div>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description" name="campground[description]" required></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+            <button class="btn btn-success mb-3">Add Campground</button>
+        </form>
+        <a class="btn btn-success" href="/campgrounds">Back to All Campgrounds</a>
+
+    </div>
+</div>
