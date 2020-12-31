@@ -38,7 +38,18 @@
                     <label for="formFile" class="form-label">Add More Images!</label>
                     <input class="form-control" type="file" id="formFile" name="image" multiple>
                 </div>
-                <button class="btn btn-info mb-3">Update Campground</button>
+                <div class="mb-3">
+                    <% campground.images.forEach((img, i)=> { %> 
+                        <img src="<%=img.thumbnail%>" class="img-thumbnail" alt="">
+                        <div class="form-check-inline">
+                            <input class="" type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                        </div>
+                        <label for="image-<%=i%>">Delete?</label>
+                    <% }) %> 
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-info mb-3">Update Campground</button>
+                </div>
             </form>
             <a class="btn btn-info" href="/campgrounds">Back to All Campgrounds</a>
     

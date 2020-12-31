@@ -1,7 +1,9 @@
 <% layout('/layouts/boilerplate') %>
     <link rel="stylesheet" href="/CSS/stylesheets/stars.css">
+    
     <div class="row">
         <div class="col-6">
+            <div id='map' style='width: 400px; height: 300px;'></div>
             <div id="campgroundCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <% campground.images.forEach((img, i) =>{ %> 
@@ -65,10 +67,6 @@
                 <h3 class="card-title">Leave a Review</h1>
                     <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="mb-3 validated-form"
                         novalidate>
-                        <!-- <div class="mb-3">
-                            <label class="form-label" for="rating">Rating</label>
-                            <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="rating">
-                        </div> -->
                         <div class="">
                         <fieldset class="starability-basic">
                             <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
@@ -122,3 +120,8 @@
                             <% } %>
         </div>
     </div>
+    <script>
+        const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+        const campground = <%- JSON.stringify(campground) %>
+    </script>
+    <script src="/JS/showPageMap.js"></script>

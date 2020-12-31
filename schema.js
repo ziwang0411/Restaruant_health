@@ -6,7 +6,9 @@ const camp = Joi.object({
         // image: Joi.string().required(),
         location: Joi.string().required(),
         description: Joi.string().required()
-    }).required()
+    }).required(),
+    deleteImages:Joi.array(),
+    geometry:Joi.object()
 });
 module.exports.campgroundSchema = camp;
 module.exports.reviewSchema = Joi.object({
