@@ -19,6 +19,7 @@ const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/review');
 const { isLoggedIn } = require('./middleware');
+const { render } = require('ejs');
 // const Joi = require('joi')
 //for error handling
 
@@ -81,11 +82,7 @@ app.use('/campgrounds/:id/reviews', reviewRoutes)
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', (req, res) => {
-    if (req.user) {
-        return res.redirect('/campgrounds')
-    }
-    req.flash('success', 'Welcome to Yelp Camp! Please log in');
-    res.redirect('/login')
+    res.render('home');
 })
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404));
