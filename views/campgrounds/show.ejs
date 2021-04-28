@@ -44,21 +44,21 @@
                         </strong>
                     </li>
                     <li class="list-group-item"> $
-                        <%= campground.price %> / night
+                        <%= campground.price %> / Person
                     </li>
                 </ul>
 
                 <% if (currentUser && currentUser._id.equals(campground.author._id)) {%>
                     <div class="card-body">
                         <a class=" card-link btn btn-warning my-1" href="/campgrounds/<%=campground._id%>/edit">Edit
-                            Campground</a>
+                            Restaruant</a>
                         <form class='d-inline my-1' action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
-                            <button class="btn btn-danger">Delete Campground</button>
+                            <button class="btn btn-danger">Delete Restaruant</button>
                         </form>
                     </div>
                     <% } %>
                         <div class="card-footer text-muted">
-                            <a class="card-link" href="/campgrounds">All Campgrounds</a>
+                            <a class="card-link" href="/campgrounds">All Restaruants</a>
                         </div>
             </div>
         </div>
